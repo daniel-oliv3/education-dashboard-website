@@ -1,29 +1,28 @@
 <?php
 
-?>
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Educação</title>
-	<link rel="stylesheet" href="css/style.css">
-	<link rel="shortcut icon" href="images/favicon.ico"/>
-</head>
-<body>
+   $db_name = 'mysql:host=localhost;dbname=education_dashboard_db';
+   $user_name = 'root';
+   $user_password = '';
 
-<?php
-	echo "Olá Mundo!";
+   $conn = new PDO($db_name, $user_name, $user_password);
+
+   function unique_id() {
+      $str = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+      $rand = array();
+      $length = strlen($str) - 1;
+      for ($i = 0; $i < 20; $i++) {
+          $n = mt_rand(0, $length);
+          $rand[] = $str[$n];
+      }
+      return implode($rand);
+   }
+
 ?>
-	
-	<script src="js/script.js"></script>
-</body>
-</html>
 
 <!--
     Autor: Daniel Oliveira
     Email: danieloliveira.webmaster@gmail.com
     Manaus/Amazonas
-    24/10/2022
+    04/02/2023
 -->
+
