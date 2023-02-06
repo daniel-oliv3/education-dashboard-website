@@ -20,9 +20,9 @@ if(isset($_POST['delete_comment'])){
    if($verify_comment->rowCount() > 0){
       $delete_comment = $conn->prepare("DELETE FROM `comments` WHERE id = ?");
       $delete_comment->execute([$delete_id]);
-      $message[] = 'comentário apagado com sucesso!';
+      $message[] = 'Comentário apagado com sucesso!';
    }else{
-      $message[] = 'comentário já deletado!';
+      $message[] = 'Comentário já deletado!';
    }
 
 }
@@ -68,7 +68,7 @@ if(isset($_POST['delete_comment'])){
       <?php
        }
       }else{
-         echo '<p class="empty">nenhum comentário adicionado ainda!</p>';
+         echo '<p class="empty">Nenhum comentário adicionado ainda!</p>';
       }
       ?>
       </div>  
@@ -85,5 +85,5 @@ if(isset($_POST['delete_comment'])){
     Autor: Daniel Oliveira
     Email: danieloliveira.webmaster@gmail.com
     Manaus/Amazonas
-    04/02/2023
+    06/02/2023
 -->

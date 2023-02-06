@@ -29,9 +29,9 @@ if(isset($_POST['delete_video'])){
       $delete_comments->execute([$delete_id]);
       $delete_content = $conn->prepare("DELETE FROM `content` WHERE id = ?");
       $delete_content->execute([$delete_id]);
-      $message[] = 'vídeo deletado!';
+      $message[] = 'Vídeo deletado!';
    }else{
-      $message[] = 'vídeo já deletado!';
+      $message[] = 'Vídeo já deletado!';
    }
 
 }

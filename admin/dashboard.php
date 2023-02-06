@@ -28,7 +28,7 @@ $total_comments = $select_comments->rowCount();
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -47,72 +47,49 @@ $total_comments = $select_comments->rowCount();
 <?php include '../components/admin_header.php'; ?>
    
 <section class="dashboard">
-
-   <h1 class="heading">dashboard</h1>
-
+   <h1 class="heading">Dashboard</h1>
    <div class="box-container">
-
       <div class="box">
-         <h3>welcome!</h3>
+         <h3>Bem-vindo!</h3>
          <p><?= $fetch_profile['name']; ?></p>
-         <a href="profile.php" class="btn">view profile</a>
+         <a href="profile.php" class="btn">Ver perfil</a>
       </div>
-
       <div class="box">
          <h3><?= $total_contents; ?></h3>
-         <p>total contents</p>
-         <a href="add_content.php" class="btn">add new content</a>
+         <p>Conteúdo total</p>
+         <a href="add_content.php" class="btn">Adicionar novo conteúdo</a>
       </div>
-
       <div class="box">
          <h3><?= $total_playlists; ?></h3>
-         <p>total playlists</p>
-         <a href="add_playlist.php" class="btn">add new playlist</a>
+         <p>Listas de reprodução totais</p>
+         <a href="add_playlist.php" class="btn">Adicionar nova lista de reprodução</a>
       </div>
-
       <div class="box">
          <h3><?= $total_likes; ?></h3>
-         <p>total likes</p>
-         <a href="contents.php" class="btn">view contents</a>
+         <p>Curtidas totais</p>
+         <a href="contents.php" class="btn">Ver conteúdo</a>
       </div>
-
       <div class="box">
          <h3><?= $total_comments; ?></h3>
-         <p>total comments</p>
-         <a href="comments.php" class="btn">view comments</a>
+         <p>Comentários totais</p>
+         <a href="comments.php" class="btn">Ver comentários</a>
       </div>
-
       <div class="box">
-         <h3>quick select</h3>
-         <p>login or register</p>
+         <h3>Seleção rápida</h3>
+         <p>Entre ou cadastre-se</p>
          <div class="flex-btn">
-            <a href="login.php" class="option-btn">login</a>
-            <a href="register.php" class="option-btn">register</a>
+            <a href="login.php" class="option-btn">Login</a>
+            <a href="register.php" class="option-btn">Registro</a>
          </div>
       </div>
-
    </div>
-
 </section>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
 <?php include '../components/footer.php'; ?>
 
-<script src="../js/admin_script.js"></script>
-
+   <script src="../js/admin_script.js"></script>
 </body>
 </html>
 
@@ -120,5 +97,5 @@ $total_comments = $select_comments->rowCount();
     Autor: Daniel Oliveira
     Email: danieloliveira.webmaster@gmail.com
     Manaus/Amazonas
-    04/02/2023
+    06/02/2023
 -->
