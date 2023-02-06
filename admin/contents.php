@@ -29,9 +29,9 @@ if(isset($_POST['delete_video'])){
       $delete_comments->execute([$delete_id]);
       $delete_content = $conn->prepare("DELETE FROM `content` WHERE id = ?");
       $delete_content->execute([$delete_id]);
-      $message[] = 'video deleted!';
+      $message[] = 'vídeo deletado!';
    }else{
-      $message[] = 'video already deleted!';
+      $message[] = 'vídeo já deletado!';
    }
 
 }
@@ -39,7 +39,7 @@ if(isset($_POST['delete_video'])){
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -58,14 +58,11 @@ if(isset($_POST['delete_video'])){
 <?php include '../components/admin_header.php'; ?>
    
 <section class="contents">
-
-   <h1 class="heading">your contents</h1>
-
+   <h1 class="heading">Seu conteúdo</h1>
    <div class="box-container">
-
    <div class="box" style="text-align: center;">
-      <h3 class="title" style="margin-bottom: .5rem;">create new content</h3>
-      <a href="add_content.php" class="btn">add content</a>
+      <h3 class="title" style="margin-bottom: .5rem;">Criar novo conteúdo</h3>
+      <a href="add_content.php" class="btn">Adicionar conteúdo</a>
    </div>
 
    <?php
@@ -84,40 +81,24 @@ if(isset($_POST['delete_video'])){
          <h3 class="title"><?= $fecth_videos['title']; ?></h3>
          <form action="" method="post" class="flex-btn">
             <input type="hidden" name="video_id" value="<?= $video_id; ?>">
-            <a href="update_content.php?get_id=<?= $video_id; ?>" class="option-btn">update</a>
-            <input type="submit" value="delete" class="delete-btn" onclick="return confirm('delete this video?');" name="delete_video">
+            <a href="update_content.php?get_id=<?= $video_id; ?>" class="option-btn">Atualizar</a>
+            <input type="submit" value="delete" class="delete-btn" onclick="return confirm('Excluir este vídeo?');" name="delete_video">
          </form>
-         <a href="view_content.php?get_id=<?= $video_id; ?>" class="btn">view content</a>
+         <a href="view_content.php?get_id=<?= $video_id; ?>" class="btn">Ver conteúdo</a>
       </div>
    <?php
          }
       }else{
-         echo '<p class="empty">no contents added yet!</p>';
+         echo '<p class="empty">Nenhum conteúdo adicionado ainda!</p>';
       }
    ?>
-
    </div>
-
 </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <?php include '../components/footer.php'; ?>
 
-<script src="../js/admin_script.js"></script>
-
+   <script src="../js/admin_script.js"></script>
 </body>
 </html>
 
@@ -125,5 +106,5 @@ if(isset($_POST['delete_video'])){
     Autor: Daniel Oliveira
     Email: danieloliveira.webmaster@gmail.com
     Manaus/Amazonas
-    04/02/2023
+    06/02/2023
 -->
