@@ -28,36 +28,32 @@ if(isset($_POST['submit'])){
    $select_tutor->execute([$email]);
    
    if($select_tutor->rowCount() > 0){
-      $message[] = 'email already taken!';
+      $message[] = 'E-mail já recebido!';
    }else{
       if($pass != $cpass){
-         $message[] = 'confirm passowrd not matched!';
+         $message[] = 'Confirme a senha não correspondida!';
       }else{
          $insert_tutor = $conn->prepare("INSERT INTO `tutors`(id, name, profession, email, password, image) VALUES(?,?,?,?,?,?)");
          $insert_tutor->execute([$id, $name, $profession, $email, $cpass, $rename]);
          move_uploaded_file($image_tmp_name, $image_folder);
-         $message[] = 'new tutor registered! please login now';
+         $message[] = 'Novo tutor registrado! por favor faça o login agora';
       }
    }
 
 }
 
 ?>
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>register</title>
-
+   <title>Registro</title>
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-
    <!-- custom css file link  -->
    <link rel="stylesheet" href="../css/admin_style.css">
-
 </head>
 <body style="padding-left: 0;">
 
@@ -74,58 +70,45 @@ if(isset($message)){
 }
 ?>
 
-<!-- register section starts  -->
-
+<!-- ======= Register section =======  -->
 <section class="form-container">
-
    <form class="register" action="" method="post" enctype="multipart/form-data">
-      <h3>register new</h3>
+      <h3>Novo registro</h3>
       <div class="flex">
          <div class="col">
-            <p>your name <span>*</span></p>
-            <input type="text" name="name" placeholder="eneter your name" maxlength="50" required class="box">
-            <p>your profession <span>*</span></p>
+            <p>Seu nome <span>*</span></p>
+            <input type="text" name="name" placeholder="Digite seu nome" maxlength="50" required class="box">
+            <p>Sua profissão <span>*</span></p>
             <select name="profession" class="box" required>
-               <option value="" disabled selected>-- select your profession</option>
-               <option value="developer">developer</option>
-               <option value="desginer">desginer</option>
-               <option value="musician">musician</option>
-               <option value="biologist">biologist</option>
-               <option value="teacher">teacher</option>
-               <option value="engineer">engineer</option>
-               <option value="lawyer">lawyer</option>
-               <option value="accountant">accountant</option>
-               <option value="doctor">doctor</option>
-               <option value="journalist">journalist</option>
-               <option value="photographer">photographer</option>
+               <option value="" disabled selected>-- Selecione sua profissão</option>
+               <option value="developer">Desenvolvedor</option>
+               <option value="desginer">Desginer</option>
+               <option value="musician">Músico</option>
+               <option value="biologist">Biólogo</option>
+               <option value="teacher">Professor</option>
+               <option value="engineer">Engenheiro</option>
+               <option value="lawyer">Advogado</option>
+               <option value="accountant">Contador</option>
+               <option value="doctor">Doutor</option>
+               <option value="journalist">Jornalista</option>
+               <option value="photographer">Fotógrafo</option>
             </select>
-            <p>your email <span>*</span></p>
-            <input type="email" name="email" placeholder="enter your email" maxlength="20" required class="box">
+            <p>Seu email <span>*</span></p>
+            <input type="email" name="email" placeholder="Digite seu email" maxlength="20" required class="box">
          </div>
          <div class="col">
-            <p>your password <span>*</span></p>
-            <input type="password" name="pass" placeholder="enter your password" maxlength="20" required class="box">
-            <p>confirm password <span>*</span></p>
-            <input type="password" name="cpass" placeholder="confirm your password" maxlength="20" required class="box">
-            <p>select pic <span>*</span></p>
+            <p>Sua senha <span>*</span></p>
+            <input type="password" name="pass" placeholder="Digite sua senha" maxlength="20" required class="box">
+            <p>Confirme sua senha <span>*</span></p>
+            <input type="password" name="cpass" placeholder="Confirme sua senha" maxlength="20" required class="box">
+            <p>Selecione a foto <span>*</span></p>
             <input type="file" name="image" accept="image/*" required class="box">
          </div>
       </div>
-      <p class="link">already have an account? <a href="login.php">login now</a></p>
-      <input type="submit" name="submit" value="register now" class="btn">
+      <p class="link">já tem uma conta? <a href="login.php">Conecte-se agora</a></p>
+      <input type="submit" name="submit" value="Registrar agora" class="btn">
    </form>
-
 </section>
-
-<!-- registe section ends -->
-
-
-
-
-
-
-
-
 
 
 
@@ -160,5 +143,5 @@ if(darkMode === 'enabled'){
     Autor: Daniel Oliveira
     Email: danieloliveira.webmaster@gmail.com
     Manaus/Amazonas
-    04/02/2023
+    06/02/2023
 -->
