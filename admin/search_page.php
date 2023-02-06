@@ -29,9 +29,9 @@ if(isset($_POST['delete_video'])){
       $delete_comments->execute([$delete_id]);
       $delete_content = $conn->prepare("DELETE FROM `content` WHERE id = ?");
       $delete_content->execute([$delete_id]);
-      $message[] = 'video deleted!';
+      $message[] = 'Vídeo deletado!';
    }else{
-      $message[] = 'video already deleted!';
+      $message[] = 'Vídeo já deletado!';
    }
 
 }
@@ -44,9 +44,7 @@ if(isset($_POST['delete_playlist'])){
    $verify_playlist->execute([$delete_id, $tutor_id]);
 
    if($verify_playlist->rowCount() > 0){
-
-   
-
+  
    $delete_playlist_thumb = $conn->prepare("SELECT * FROM `playlist` WHERE id = ? LIMIT 1");
    $delete_playlist_thumb->execute([$delete_id]);
    $fetch_thumb = $delete_playlist_thumb->fetch(PDO::FETCH_ASSOC);
@@ -55,37 +53,31 @@ if(isset($_POST['delete_playlist'])){
    $delete_bookmark->execute([$delete_id]);
    $delete_playlist = $conn->prepare("DELETE FROM `playlist` WHERE id = ?");
    $delete_playlist->execute([$delete_id]);
-   $message[] = 'playlist deleted!';
+   $message[] = 'Lista de reprodução excluída!';
    }else{
-      $message[] = 'playlist already deleted!';
+      $message[] = 'Lista de reprodução já excluída!';
    }
 }
 
 ?>
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Dashboard</title>
-
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-
    <!-- custom css file link  -->
    <link rel="stylesheet" href="../css/admin_style.css">
-
 </head>
 <body>
 
 <?php include '../components/admin_header.php'; ?>
    
 <section class="contents">
-
-   <h1 class="heading">contents</h1>
-
+   <h1 class="heading">Conteúdo</h1>
    <div class="box-container">
 
    <?php
@@ -106,29 +98,26 @@ if(isset($_POST['delete_playlist'])){
          <h3 class="title"><?= $fecth_videos['title']; ?></h3>
          <form action="" method="post" class="flex-btn">
             <input type="hidden" name="video_id" value="<?= $video_id; ?>">
-            <a href="update_content.php?get_id=<?= $video_id; ?>" class="option-btn">update</a>
-            <input type="submit" value="delete" class="delete-btn" onclick="return confirm('delete this video?');" name="delete_video">
+            <a href="update_content.php?get_id=<?= $video_id; ?>" class="option-btn">Atualizar</a>
+            <input type="submit" value="delete" class="delete-btn" onclick="return confirm('Excluir este vídeo?');" name="delete_video">
          </form>
-         <a href="view_content.php?get_id=<?= $video_id; ?>" class="btn">view content</a>
+         <a href="view_content.php?get_id=<?= $video_id; ?>" class="btn">Ver conteúdo</a>
       </div>
    <?php
          }
       }else{
-         echo '<p class="empty">no contents founds!</p>';
+         echo '<p class="empty">Nenhum conteúdo encontrado!</p>';
       }
    }else{
-      echo '<p class="empty">please search something!</p>';
+      echo '<p class="empty">Por favor, procure algo!</p>';
    }
    ?>
 
    </div>
-
 </section>
 
 <section class="playlists">
-
-   <h1 class="heading">playlists</h1>
-
+   <h1 class="heading">Playlists</h1>
    <div class="box-container">
    
       <?php
@@ -156,34 +145,21 @@ if(isset($_POST['delete_playlist'])){
          <p class="description"><?= $fetch_playlist['description']; ?></p>
          <form action="" method="post" class="flex-btn">
             <input type="hidden" name="playlist_id" value="<?= $playlist_id; ?>">
-            <a href="update_playlist.php?get_id=<?= $playlist_id; ?>" class="option-btn">update</a>
-            <input type="submit" value="delete_playlist" class="delete-btn" onclick="return confirm('delete this playlist?');" name="delete">
+            <a href="update_playlist.php?get_id=<?= $playlist_id; ?>" class="option-btn">Atualizar</a>
+            <input type="submit" value="delete_playlist" class="delete-btn" onclick="return confirm('Excluir esta lista de reprodução?');" name="delete">
          </form>
-         <a href="view_playlist.php?get_id=<?= $playlist_id; ?>" class="btn">view playlist</a>
+         <a href="view_playlist.php?get_id=<?= $playlist_id; ?>" class="btn">Ver lista de reprodução</a>
       </div>
       <?php
          } 
       }else{
-         echo '<p class="empty">no playlists found!</p>';
+         echo '<p class="empty">Nenhuma lista de reprodução encontrada!</p>';
       }}else{
-         echo '<p class="empty">please search something!</p>';
+         echo '<p class="empty">Por favor, procure algo!</p>';
       }
       ?>
-
    </div>
-
 </section>
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -205,5 +181,5 @@ if(isset($_POST['delete_playlist'])){
     Autor: Daniel Oliveira
     Email: danieloliveira.webmaster@gmail.com
     Manaus/Amazonas
-    04/02/2023
+    06/02/2023
 -->

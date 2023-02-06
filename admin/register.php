@@ -105,7 +105,7 @@ if(isset($message)){
             <input type="file" name="image" accept="image/*" required class="box">
          </div>
       </div>
-      <p class="link">já tem uma conta? <a href="login.php">Conecte-se agora</a></p>
+      <p class="link">Já tem uma conta? <a href="login.php">Conecte-se agora</a></p>
       <input type="submit" name="submit" value="Registrar agora" class="btn">
    </form>
 </section>
