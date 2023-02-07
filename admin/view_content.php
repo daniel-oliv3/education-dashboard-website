@@ -53,9 +53,9 @@ if(isset($_POST['delete_comment'])){
    if($verify_comment->rowCount() > 0){
       $delete_comment = $conn->prepare("DELETE FROM `comments` WHERE id = ?");
       $delete_comment->execute([$delete_id]);
-      $message[] = 'comment deleted successfully!';
+      $message[] = 'Comentário apagado com sucesso!';
    }else{
-      $message[] = 'comment already deleted!';
+      $message[] = 'Comentário já deletado!';
    }
 
 }
@@ -63,19 +63,16 @@ if(isset($_POST['delete_comment'])){
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>view content</title>
-
+   <title>Ver conteúdo</title>
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-
    <!-- custom css file link  -->
    <link rel="stylesheet" href="../css/admin_style.css">
-
 </head>
 <body>
 
@@ -83,7 +80,6 @@ if(isset($_POST['delete_comment'])){
 
 
 <section class="view-content">
-
    <?php
       $select_content = $conn->prepare("SELECT * FROM `content` WHERE id = ? AND tutor_id = ?");
       $select_content->execute([$get_id, $tutor_id]);
@@ -111,26 +107,22 @@ if(isset($_POST['delete_comment'])){
       <form action="" method="post">
          <div class="flex-btn">
             <input type="hidden" name="video_id" value="<?= $video_id; ?>">
-            <a href="update_content.php?get_id=<?= $video_id; ?>" class="option-btn">update</a>
-            <input type="submit" value="delete" class="delete-btn" onclick="return confirm('delete this video?');" name="delete_video">
+            <a href="update_content.php?get_id=<?= $video_id; ?>" class="option-btn">Atualizar</a>
+            <input type="submit" value="delete" class="delete-btn" onclick="return confirm('Excluir este vídeo?');" name="delete_video">
          </div>
       </form>
    </div>
    <?php
     }
    }else{
-      echo '<p class="empty">no contents added yet! <a href="add_content.php" class="btn" style="margin-top: 1.5rem;">add videos</a></p>';
+      echo '<p class="empty">Nenhum conteúdo adicionado ainda! <a href="add_content.php" class="btn" style="margin-top: 1.5rem;">Adicionar vídeos</a></p>';
    }
       
    ?>
-
 </section>
 
 <section class="comments">
-
-   <h1 class="heading">user comments</h1>
-
-   
+   <h1 class="heading">Comentários do usuário</h1>  
    <div class="show-comments">
       <?php
          $select_comments = $conn->prepare("SELECT * FROM `comments` WHERE content_id = ?");
@@ -152,13 +144,13 @@ if(isset($_POST['delete_comment'])){
          <p class="text"><?= $fetch_comment['comment']; ?></p>
          <form action="" method="post" class="flex-btn">
             <input type="hidden" name="comment_id" value="<?= $fetch_comment['id']; ?>">
-            <button type="submit" name="delete_comment" class="inline-delete-btn" onclick="return confirm('delete this comment?');">delete comment</button>
+            <button type="submit" name="delete_comment" class="inline-delete-btn" onclick="return confirm('Excluir este comentário?');">Excluir comentário</button>
          </form>
       </div>
       <?php
        }
       }else{
-         echo '<p class="empty">no comments added yet!</p>';
+         echo '<p class="empty">Nenhum comentário adicionado ainda!</p>';
       }
       ?>
       </div>
@@ -168,18 +160,9 @@ if(isset($_POST['delete_comment'])){
 
 
 
-
-
-
-
-
-
-
-
 <?php include '../components/footer.php'; ?>
 
-<script src="../js/admin_script.js"></script>
-
+   <script src="../js/admin_script.js"></script>
 </body>
 </html>
 
@@ -187,5 +170,5 @@ if(isset($_POST['delete_comment'])){
     Autor: Daniel Oliveira
     Email: danieloliveira.webmaster@gmail.com
     Manaus/Amazonas
-    04/02/2023
+    07/02/2023
 -->
